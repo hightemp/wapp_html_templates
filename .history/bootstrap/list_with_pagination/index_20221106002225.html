@@ -35,41 +35,19 @@
                 </tr>
             </thead>
             <tbody>
-
-                <tr class="active">
+                <?php foreach ($aBoardsList['rows'] as $aRow): ?>
+                <tr class="<?php echo $aBoard["active_class"] ?>">
                     <th scope="row">
-                        <input type="checkbox" class="custom-control-input" id="boxes[10]">
-                        10
+                        <input type="checkbox" class="custom-control-input" id="boxes[<?php echo $aRow['id']?>]">
+                        <?php echo $aRow['id']?>
                     </th>
                     <td>
-                        <a href="#">Test item 1</a>
-                        <small>10.10.2022</small>
-                        <small>11.10.2022</small>
+                        <a href="<?php echo $aRow['url']?>"><?php echo $aRow['name']?></a>
+                        <small><?php echo $aBoard["created_at"] ?></small>
+                        <small><?php echo $aBoard["updated_at"] ?></small>
                     </td>
                 </tr>
-                <tr class="">
-                    <th scope="row">
-                        <input type="checkbox" class="custom-control-input" id="boxes[10]">
-                        10
-                    </th>
-                    <td>
-                        <a href="#">Test item 2</a>
-                        <small>10.10.2022</small>
-                        <small>11.10.2022</small>
-                    </td>
-                </tr>
-                <tr class="">
-                    <th scope="row">
-                        <input type="checkbox" class="custom-control-input" id="boxes[10]">
-                        10
-                    </th>
-                    <td>
-                        <a href="#">Test item 3</a>
-                        <small>10.10.2022</small>
-                        <small>11.10.2022</small>
-                    </td>
-                </tr>
-
+                <?php endforeach ?>
             </tbody>
         </table>
     </div>
